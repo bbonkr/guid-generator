@@ -11,6 +11,7 @@ export const Generator = () => {
     const [uppercase, setUppercase] = useState(true);
     const [hasBraces, setHasBraces] = useState(true);
     const [hasHyphens, setHasHyphens] = useState(true);
+    const [isCopied, setIsCopied] = useState(false);
 
     const handleInputchange = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.persist();
@@ -28,6 +29,13 @@ export const Generator = () => {
             default:
                 break;
         }
+    };
+
+    const handleCopied = (text: string, result: boolean) => {
+        setIsCopied(true);
+        setTimeout(() => {
+            setIsCopied(false);
+        }, 1500);
     };
 
     const handleclickGenerate = () => {
@@ -101,11 +109,15 @@ export const Generator = () => {
                         <Input
                             value={value}
                             endAdornment={
-                                <CopyToClipboard text={value}>
-                                    <Button disabled={!value}>
-                                        <FileCopyIcon titleAccess="Copy to clipboard" />
-                                    </Button>
-                                </CopyToClipboard>
+                                isCopied ? (
+                                    <Typography>Copied</Typography>
+                                ) : (
+                                    <CopyToClipboard text={value} onCopy={handleCopied}>
+                                        <Button disabled={!value}>
+                                            <FileCopyIcon titleAccess="Copy to clipboard" />
+                                        </Button>
+                                    </CopyToClipboard>
+                                )
                             }
                             inputProps={{ style: { textAlign: 'center' } }}
                             fullWidth
