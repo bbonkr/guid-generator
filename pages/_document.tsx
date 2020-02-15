@@ -11,6 +11,14 @@ export default class MyDocument extends Document {
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+                    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+                    <link rel="apple-touch-icon-precomposed" href="/bbon-icon.png" />
+                    <link href="/bbon-icon-16.png" rel="icon" sizes="16x16" />
+                    <link href="/bbon-icon-32.png" rel="icon" sizes="32x32" />
+                    <link href="/bbon-icon-48.png" rel="icon" sizes="48x48" />
+                    <link href="/bbon-icon-64.png" rel="icon" sizes="64x64" />
+                    <link href="/bbon-icon-128.png" rel="icon" sizes="128x128" />
+                    <link href="/bbon-icon.png" rel="icon" sizes="512x512" />
 
                     {/* PWA primary color */}
                     <meta name="theme-color" content={defaultTheme.palette.primary.main} />
