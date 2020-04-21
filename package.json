@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "next",
         "build": "cross-env NODE_ENV=production next build",
-        "start": "cross-env NODE_ENV=production next start",
+        "start": "cross-env NODE_ENV=production next start -p 8080",
         "postinstall": "npm run build",
         "export": "cross-env NODE_ENV=production next export",
         "deploy": "npm run build && npm run export",
