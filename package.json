@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "next",
         "build": "cross-env NODE_ENV=production next build",
-        "start": "next start",
+        "start": "cross-env NODE_ENV=production next start",
+        "postinstall": "npm run build",
         "export": "cross-env NODE_ENV=production next export",
         "deploy": "npm run build && npm run export",
         "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./",
