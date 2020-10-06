@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppBar, Toolbar, IconButton, Button, Icon, Typography } from '@material-ui/core';
 import { GitHub as GitHubIcon } from '@material-ui/icons';
+import ReactGA from 'react-ga';
 import { useStyles } from './styles';
 
 export const Header = () => {
     const classes = useStyles();
+
+    useEffect(() => { 
+        if (window) {
+            ReactGA.pageview(window.location.pathname);
+        }
+    }, []);
 
     return (
         <AppBar position="static">
