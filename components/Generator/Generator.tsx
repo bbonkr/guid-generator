@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Box, Grid, Paper, Typography, Input, FormControlLabel, Checkbox } from '@material-ui/core';
 import { FileCopy as FileCopyIcon } from '@material-ui/icons';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useStyles } from './styles';
 

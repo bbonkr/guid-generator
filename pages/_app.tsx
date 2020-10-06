@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { defaultTheme } from '../theme';
 import getConfig from 'next/config';
+import ReactGA from 'react-ga';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -25,6 +26,11 @@ export default class MyApp extends App {
         const jssStyles = document.querySelector('#jss-server-side');
         if (jssStyles) {
             jssStyles.parentElement.removeChild(jssStyles);
+        }
+
+        // google
+        if (Boolean(this.gaTraceId)) {
+            ReactGA.initialize(this.gaTraceId);
         }
 
         Router.events.on('routeChangeComplete', this.handleRouteChangeComplete);

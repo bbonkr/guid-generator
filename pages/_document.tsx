@@ -2,34 +2,13 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import { defaultTheme } from '../theme';
-import getConfig from 'next/config';
+// import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
+// const { publicRuntimeConfig } = getConfig();
 
 export default class MyDocument extends Document {
     constructor(props) {
         super(props);
-
-        this.gaTraceId = publicRuntimeConfig.googleAnalyticsTraceId;
-
-        // console.log('ga: ', this.gaTraceId);
-
-        this.addGoogleAnalyticsScript = this.addGoogleAnalyticsScript.bind(this);
-    }
-
-    private readonly gaTraceId: string;
-
-    addGoogleAnalyticsScript() {
-        return {
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', '${this.gaTraceId}');
-
-            `,
-        };
     }
 
     render() {
@@ -60,17 +39,6 @@ export default class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
-                    {this.gaTraceId ? (
-                        <>
-                            <script
-                                async
-                                src={`https://www.googletagmanager.com/gtag/js?id=${this.gaTraceId}`}
-                            ></script>
-                            <script dangerouslySetInnerHTML={this.addGoogleAnalyticsScript()} />{' '}
-                        </>
-                    ) : (
-                        undefined
-                    )}
                 </body>
             </html>
         );
